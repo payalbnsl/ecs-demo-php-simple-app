@@ -4,7 +4,7 @@
         {
             "environment": [],
             "name": "ecs-c",
-            "image": "167218169229.dkr.ecr.ap-south-1.amazonaws.com/samplerep:${BUILD_NUMBER}",
+            "image": "167218169229.dkr.ecr.ap-south-1.amazonaws.com/samplerep:latest",
             "cpu": 10,
             "memory": 500,
             "portMappings": [
