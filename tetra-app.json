@@ -1,16 +1,10 @@
 {
-    "family": "console-sample-app",
-    "volumes": [
-        {
-            "name": "my-vol",
-            "host": {}
-        }
-    ],
+    "family": "task1",
     "containerDefinitions": [
         {
             "environment": [],
-            "name": "simple-app",
-            "image": "amazon/amazon-ecs-sample",
+            "name": "ecs-c",
+            "image": "167218169229.dkr.ecr.ap-south-1.amazonaws.com/samplerep",
             "cpu": 10,
             "memory": 500,
             "portMappings": [
@@ -19,37 +13,7 @@
                     "hostPort": 80
                 }
             ],
-            "mountPoints": [
-                {
-                    "sourceVolume": "my-vol",
-                    "containerPath": "/var/www/my-vol"
-                }
-            ],
-            "entryPoint": [
-                "/usr/sbin/apache2",
-                "-D",
-                "FOREGROUND"
-            ],
-            "essential": true
-        },
-        {
-            "name": "busybox",
-            "image": "busybox",
-            "cpu": 10,
-            "memory": 500,
-            "volumesFrom": [
-            {
-              "sourceContainer": "simple-app"
-            }
-            ],
-            "entryPoint": [
-                "sh",
-                "-c"
-            ],
-            "command": [
-                "/bin/sh -c \"while true; do /bin/date > /var/www/my-vol/date; sleep 1; done\""
-            ],
-            "essential": false
+           "essential": true
         }
     ]
 }
